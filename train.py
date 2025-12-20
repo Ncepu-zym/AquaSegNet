@@ -4,7 +4,7 @@ from ultralytics import YOLO
 
 
 if __name__ == '__main__':
-    model = YOLO('ultralytics/cfg/models/11/AquaSegNet.yaml') # YOLO11
+    model = YOLO('ultralytics/cfg/models/11/AquaSegNet.yaml')
     model.train(data='dataset/data.yaml',
                 cache=False,
                 imgsz=640,
