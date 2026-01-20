@@ -24,7 +24,7 @@ The core code is designed to be "Plug-and-Play" within the [Ultralytics](https:/
 └── README.md
 
 <div align="center">
-  <img src="assets/AquaSegNet.png" width="850"/>
+  <img src="assets/AquaSegNet.pdf" width="850"/>
   <br><br>
   <b>The Architecture of AquaSegNet</b>
   <br>
@@ -63,3 +63,4 @@ Since **AquaSegNet** introduces custom architectural modules (**MSDIM**, **SEFFN
     yolo segment train model=AquaSegNet.yaml data=your_dataset.yaml epochs=300
 
     ```
+
