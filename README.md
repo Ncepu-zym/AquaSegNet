@@ -23,6 +23,14 @@ The core code is designed to be "Plug-and-Play" within the [Ultralytics](https:/
 │   └── DFSH.py            # Implementation of the Dynamic Fusion Shared Head
 └── README.md
 
+<div align="center">
+  <img src="assets/AquaSegNet.png" width="850"/>
+  <br><br>
+  <b>The Architecture of AquaSegNet</b>
+  <br>
+  <em>Our proposed model integrates MSDIM, SEFFN, and DFSH modules into the YOLOv11 framework.</em>
+</div>
+
 ## ⚠️ Usage Note (Important)
 
 Since **AquaSegNet** introduces custom architectural modules (**MSDIM**, **SEFFN**, **DFSH**) that are not part of the standard YOLOv11 distribution, you **must** register them in the framework before training.
@@ -53,4 +61,5 @@ Since **AquaSegNet** introduces custom architectural modules (**MSDIM**, **SEFFN
 3.  **Run Training**:
     ```bash
     yolo segment train model=AquaSegNet.yaml data=your_dataset.yaml epochs=300
+
     ```
