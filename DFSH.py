@@ -135,7 +135,7 @@ class Detect_DFSH(Detect_LSCD):
         self.share_conv = nn.Sequential(LMBB(hidc, hidc, 3, groups=hidc), Conv_GN(hidc, hidc, 1))
 
 class Segment_DFSH(Detect_DFSH):
-    """YOLOv11n Segment head for segmentation models."""
+    """DFSH = Segment_DFSH"""
 
     def __init__(self, nc=80, nm=32, npr=256, hidc=256, ch=()):
         """Initialize the YOLO model attributes such as the number of masks, prototypes, and the convolution layers."""
@@ -157,4 +157,5 @@ class Segment_DFSH(Detect_DFSH):
         x = self.detect(self, x)
         if self.training:
             return x, mc, p
+
         return (torch.cat([x, mc], 1), p) if self.export else (torch.cat([x[0], mc], 1), (x[1], mc, p))
