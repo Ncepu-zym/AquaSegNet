@@ -11,7 +11,7 @@ AquaSegNet introduces three novel architectural units designed for irregular lea
 3.  **DFSH (Dynamic Fusion Shared Head)**: Efficiently decouples detection and segmentation tasks.
 
 <div align="center">
-  <img src="assets/AquaSegNet.png" width="850"/>
+  <img src="AquaSegNet.png" width="850"/>
   <br><br>
   <b>The Architecture of AquaSegNet</b>
   <br>
@@ -65,6 +65,7 @@ Since **AquaSegNet** introduces custom architectural modules (**MSDIM**, **SEFFN
     yolo segment train model=AquaSegNet.yaml data=your_dataset.yaml epochs=300
 
     ```
+
 
 
 
