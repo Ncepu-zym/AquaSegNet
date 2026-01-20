@@ -1,6 +1,6 @@
-class SpectralEnhancedFFN(nn.Module):
+class SEFFN(nn.Module):
     def __init__(self, dim, ffn_expansion_factor, bias):
-        super(SpectralEnhancedFFN, self).__init__()
+        super(SEFFN, self).__init__()
 
         hidden_features = int(dim*ffn_expansion_factor)
 
@@ -35,3 +35,15 @@ class SpectralEnhancedFFN(nn.Module):
         x = F.silu(x1) * x2
         x = self.project_out(x.to(x_dtype))
         return x
+    
+class PSABlock_SEFFN(PSABlock):
+    def __init__(self, c, attn_ratio=0.5, num_heads=4, shortcut=True) -> None:
+        super().__init__(c, attn_ratio, num_heads, shortcut)
+
+        self.ffn = SEFFN(c, 2, False)
+
+class Spec_C2PSA(C2PSA):
+    def __init__(self, c1, c2, n=1, e=0.5):
+        super().__init__(c1, c2, n, e)
+
+        self.m = nn.Sequential(*(PSABlock_SEFFN(self.c, attn_ratio=0.5, num_heads=self.c // 64) for _ in range(n)))
