@@ -1,4 +1,4 @@
-class DynamicInceptionDWConv2d(nn.Module):
+class DIDC(nn.Module):
     def __init__(self, in_channels, square_kernel_size=3, band_kernel_size=11):
         super().__init__()
         self.dwconv = nn.ModuleList([
@@ -30,7 +30,7 @@ class MSDIM(nn.Module):
         
         self.convs = nn.ModuleList([])
         for ks in kernels:
-            self.convs.append(DynamicInceptionDWConv2d(min_ch, ks, ks * 3 + 2))
+            self.convs.append(DIDC(min_ch, ks, ks * 3 + 2))
         self.conv_1x1 = Conv(channel, channel, k=1)
         
     def forward(self, x):
@@ -40,7 +40,7 @@ class MSDIM(nn.Module):
         x = self.conv_1x1(x_group)
         return x
 
-class DIDC(nn.Module):
+class MSDIM_Block(nn.Module):
     def __init__(self, dim, drop_path=0.0):
         super().__init__()
         self.norm1 = nn.BatchNorm2d(dim)
@@ -63,9 +63,9 @@ class C3k_MSDIM(C3k):
     def __init__(self, c1, c2, n=1, shortcut=False, g=1, e=0.5, k=3):
         super().__init__(c1, c2, n, shortcut, g, e, k)
         c_ = int(c2 * e)  # hidden channels
-        self.m = nn.Sequential(*(DIDC(c_) for _ in range(n)))
+        self.m = nn.Sequential(*(MSDIM_Block(c_) for _ in range(n)))
 
 class C3k2_MSDIM(C3k2):
     def __init__(self, c1, c2, n=1, c3k=False, e=0.5, g=1, shortcut=True):
         super().__init__(c1, c2, n, c3k, e, g, shortcut)
-        self.m = nn.ModuleList(C3k_MSDIM(self.c, self.c, 2, shortcut, g) if c3k else DIDC(self.c) for _ in range(n))
+        self.m = nn.ModuleList(C3k_MSDIM(self.c, self.c, 2, shortcut, g) if c3k else MSDIM_Block(self.c) for _ in range(n))
