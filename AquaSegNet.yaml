@@ -24,7 +24,7 @@ backbone:
   - [-1, 1, Conv, [1024, 3, 2]] # 7-P5/32
   - [-1, 2, C3k2_MSDIM, [1024, True]]
   - [-1, 1, SPPF, [1024, 5]] # 9
-  - [-1, 2, C2PSA_SEFFN, [1024]] # 10
+  - [-1, 2, Spec_C2PSA, [1024]] # 10
 
 # YOLO11n head
 head:
@@ -44,4 +44,4 @@ head:
   - [[-1, 10], 1, Concat, [1]] # cat head P5
   - [-1, 2, C3k2_MSDIM, [1024, True]] # 22 (P5/32-large)
 
-  - [[16, 19, 22], 1, Segment_DFSH, [nc, 32, 256, 256]] # Detect(P3, P4, P5)
+  - [[16, 19, 22], 1, DFSH, [nc, 32, 256, 256]] # Detect(P3, P4, P5)
