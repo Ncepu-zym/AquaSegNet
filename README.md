@@ -17,7 +17,7 @@ AquaSegNet introduces three novel architectural units designed for irregular lea
   <br>
   <em>Our proposed model integrates MSDIM, SEFFN, and DFSH modules into the YOLOv11 framework.</em>
   <br>
-  <a href="assets/AquaSegNet.pdf">📄 Click here to download high-resolution PDF</a>
+  <a href="AquaSegNet.pdf">📄 Click here to download high-resolution PDF</a>
 </div>
 
 ## 📂 Repository Structure
@@ -76,6 +76,7 @@ If you find this work useful in your research, please consider citing our paper:
   year={2026},
   note={Under Review}
 }
+
 
 
 
