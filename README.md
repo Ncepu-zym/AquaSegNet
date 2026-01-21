@@ -71,8 +71,9 @@ If you find this work useful in your research, please consider citing our paper:
 ```bibtex
 @article{teng2026aquasegnet,
   title={AquaSegNet: A Real-time Dynamic Network for High-Precision Water Leakage Segmentation in Shield Tunnel Lining},
-  author={Teng, Jing and Zhu, Yiming and Liu, Jian and Pu, Mengyang and others},
+  author = {Teng, Jing and Zhu, Yiming and Liu, Jian and Pu, Mengyang and Shi, Ruifeng and Lv, You and Zhai, Yongjie and Wang, Tian and Zeng, Xinhua and Jing, Guoqing and Snoussi, Hichem},
   journal={Engineering Applications of Artificial Intelligence},
   year={2026},
   note={Under Review}
 }
+
