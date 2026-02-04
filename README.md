@@ -1,4 +1,4 @@
-# AquaSegNet:A real-time dynamic network for high-precision water leakage segmentation in shield tunnel lining
+# AquaSegNet: A real-time dynamic network for high-precision water leakage segmentation in shield tunnel lining
 
 [![Powered by Ultralytics](https://img.shields.io/badge/Powered%20by-Ultralytics%20YOLOv11-blue)](https://github.com/ultralytics/ultralytics)
 [![License](https://img.shields.io/badge/License-AGPL%203.0-green)]()
@@ -76,6 +76,7 @@ If you find this work useful in your research, please consider citing our paper:
   year={2026},
   note={Under Review}
 }
+
 
 
 
